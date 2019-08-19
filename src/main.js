@@ -19,7 +19,9 @@ import './registerServiceWorker'
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
 
-import Vuetify from 'vuetify'
+import Vuetify from 'vuetify/lib'
+import 'vuetify/dist/vuetify.min.css'
+
 Vue.use(Vuetify)
 
 Vue.prototype.$rootPath = 'http://localhost:5000'

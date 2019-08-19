@@ -12,12 +12,19 @@
       </sidebar-link>
       <sidebar-link to="/admin/table-list">
         <i class="nc-icon nc-notes"></i>
-        <p>Table list</p>
+        <p>Hash List</p>
       </sidebar-link>
-      <sidebar-link to="/admin/table-list-bck">
+      <sidebar-link to="/admin/search-log">
         <i class="nc-icon nc-notes"></i>
-        <p>Table list</p>
+        <p>Search log</p>
       </sidebar-link>
+
+      <sidebar-link to="/admin/search-log-vuetify">
+        <i class="nc-icon nc-notes"></i>
+        <p>Search log vuetify</p>
+      </sidebar-link>
+
+
       <sidebar-link to="/admin/typography">
         <i class="nc-icon nc-paper-2"></i>
         <p>Typography</p>
@@ -35,13 +42,19 @@
         <p>Notifications</p>
       </sidebar-link>
 
-      <template slot="bottom-links">
         <sidebar-link class="active"
-                      to="/admin/upgrade">
+                      to="/admin/hash-detail">
           <i class="nc-icon nc-alien-33"></i>
-          <p>Upgrade to PRO</p>
+          <p>Hash Detail</p>
         </sidebar-link>
-      </template>
+
+      <!--<template slot="bottom-links">-->
+        <!--<sidebar-link class="active"-->
+                      <!--to="/admin/upgrade">-->
+          <!--<i class="nc-icon nc-alien-33"></i>-->
+          <!--<p>Upgrade to PRO</p>-->
+        <!--</sidebar-link>-->
+      <!--</template>-->
       <v-flex xs12>
         <v-img
                 :src="require('../../public/img/logo.svg')"
@@ -100,15 +113,15 @@
                 })
       }
     },
-  sockets: {
-    response1: function (data) {
-      this.notifyVue('top', 'right',data)
-      console.log(data)
-    },
-    customEmit: function (data) {
-      console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)',data)
+    sockets: {
+      response1: function (data) {
+        this.notifyVue('top', 'right',data)
+        console.log(data)
+      },
+      customEmit: function (data) {
+        console.log('this method was fired by the socket server. eg: io.emit("customEmit", data)',data)
+      }
     }
-  }
   }
 
 </script>

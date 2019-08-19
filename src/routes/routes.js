@@ -6,13 +6,15 @@ import NotFound from '../pages/NotFoundPage.vue'
 import Overview from 'src/pages/Overview.vue'
 import UserProfile from 'src/pages/UserProfile.vue'
 import TableList from 'src/pages/TableList.vue'
-import TableList_bck from 'src/pages/TableList_bck.vue'
+import SearchLog from 'src/pages/SearchLog.vue'
+import SearchLogVuetify from 'src/pages/SearchLogVuetify.vue'
 
 import Typography from 'src/pages/Typography.vue'
 import Icons from 'src/pages/Grid.vue'
 import Maps from 'src/pages/Maps.vue'
 import Notifications from 'src/pages/Notifications.vue'
 import Upgrade from 'src/pages/Upgrade.vue'
+import HashDetail from 'src/pages/HashDetail.vue'
 
 const routes = [
   {
@@ -41,9 +43,14 @@ const routes = [
         component: TableList
       },
       {
-        path: 'table-list-bck',
-        name: 'Table List bck',
-        component: TableList_bck
+        path: 'search-log',
+        name: 'SearchLog',
+        component: SearchLog
+      },
+      {
+        path: 'search-log-vuetify',
+        name: 'SearchLogVuetify',
+        component: SearchLogVuetify
       },
       {
         path: 'typography',
@@ -69,6 +76,11 @@ const routes = [
         path: 'upgrade',
         name: 'Upgrade to PRO',
         component: Upgrade
+      },
+      {
+        path: 'hash-detail',
+        name: 'detail',
+        component: HashDetail
       }
     ]
   },

@@ -2,16 +2,16 @@
   <div id="data-table">
     <v-layout wrap>
         <v-text-field
-            v-model="hashValue"
-            label="SHA256 or MD5"
-            @keydown.enter="getData"
+            v-model="searchText"
+            label="any thing"
+            @keydown="getData"
         ></v-text-field>
         <v-btn
             @click="getData"
         >Search
         </v-btn>
     </v-layout>
-    <datatable v-bind="$data">
+    <datatable v-bind="$data" >
       <!--<button class="btn btn-default" @click="alertSelectedUids" :disabled="!selection.length">-->
       <!--<i class="fa fa-commenting-o"></i>-->
       <!--Alert selected uid(s)-->
@@ -29,22 +29,21 @@
     data () {
       const amINestedComp = !!this.row
       return {
-        title:'',
-        tblClass: 'table-bordered',
+        searchText:'',
         tblStyle: 'table-layout: fixed', // must
-        Pagination:true,
-        pageSizeOptions: [10, 20, 50, 100],
-        columns:  [
-            { title: '이벤트 ID', field: 'event_id',colStyle:{width:'5%'}},
-            { title: 'SHA256', field: 'SHA256',colStyle:{width:'40%'}},
-            { title: '이벤트 발생 시간', field: 'timestamp',colStyle:{width:'10%'}},
-            { title: '실행 파일명', field: 'OriginalFileName',colStyle:{width:'10%'}},
-            { title: '상위 프로세서', field: 'ParentCommandLine',colStyle:{width:'15%'}}
+         // tblStyle: 'color: #666',
+        columns:   [
+            { title: '이벤트 ID', field: 'event_id',colStyle:{width:'10%'}, sortable: true},
+            // { title: 'MD5', field: 'MD5',colStyle:{width:'100px'}},
+            // { title: 'SHA256', field: 'SHA256'},
+            { title: '이벤트 발생 시간', field: 'timestamp',colStyle:{width:'20%'}},
+            { title: '이벤트', field: 'event_data',colStyle:{width:'70%'}}
+
           ],
         data: [],
         origin_data: [],
         total: 0,
-        HeaderSettings:false,
+          HeaderSettings:false,
         //selection: [],
         summary: {},
         // `query` will be initialized to `{ limit: 10, offset: 0, sort: '', order: '' }` by default
@@ -52,18 +51,14 @@
         // otherwise, the new added properties would not be reactive
         query: amINestedComp ? { uid: this.row.friends } : {},
         // any other staff that you want to pass to dynamic components (thComp / tdComp / nested components)
-        xprops: {
-          eventbus: new Vue()
-        },
-        hashValue:'',
-
+          deep: true
       }
     },
     watch: {
       query: {
         handler () {
           if(this.data.length==0){
-              this.getData()
+            this.getData({keydown: {keyCode:13}})
           }else{
             this.handleDataChange()
           }
@@ -79,32 +74,30 @@
                   this.total = total
                 })
       },
-      getData(){
+      getData(keydown){
+        const path = this.$rootPath + '/es/log'
+        const params ={searchText:this.searchText}
 
-        let path = this.$rootPath + '/es/hashes'
-        if(this.hashValue != ''){
-            path = path +'/'+ this.hashValue
+        if(keydown.keyCode ==13){
+            this.$http.post(path,params)
+                .then(response => {
+                    console.log(response)
+                    this.data = response.data.datas
+                    this.origin_data = response.data.datas
+                    this.total = response.data.total
+                    this.handleDataChange()
+
+                })
+                .catch(error => {
+                    console.log('처리중 오류가 발생하였습니다. 관리자에게 문의 바랍니다.')
+                })
         }
-
-        this.$http.get(path)
-          .then(response => {
-              this.data = response.data.datas
-              this.origin_data = response.data.datas
-              this.total = response.data.total
-              this.handleDataChange()
-
-          })
-          .catch(error => {
-              console.log('처리중 오류가 발생하였습니다. 관리자에게 문의 바랍니다.')
-              console.log(error)
-
-          })
       },
       alertSelectedUids () {
         alert(this.selection.map(({ uid }) => uid))
       },test(){
-          this.getData();
-       }
+        alert("test")
+      }
     }
   }
 </script>
@@ -117,6 +110,7 @@
     color: #2c3e50;
     padding-right: 15px;
     padding-left: 15px;
+
   }
   >>>th {
     background-color: lightslategray;
@@ -140,6 +134,14 @@
     /* border-top: none !important; */
     /* border-bottom: none; */
     font-family: 'Nanum Gothic';
+
+  }
+
+  >>>.table{
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      overflow-y: auto;
   }
 
 </style>
