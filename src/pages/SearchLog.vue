@@ -3,7 +3,7 @@
     <v-layout wrap>
         <v-text-field
             v-model="searchText"
-            label="any thing"
+            label="anything"
             @keydown="getData"
         ></v-text-field>
         <v-btn

@@ -4,7 +4,7 @@
         <v-layout wrap>
             <v-text-field
                     v-model="searchText"
-                    label="any thing"
+                    label="anything"
                     @keydown="getData"
             ></v-text-field>
             <v-btn
@@ -14,7 +14,7 @@
         </v-layout>
         <v-app>
             <template>
-                <v-data-table :headers="headers" :items="desserts" :pagination.sync="pagination" item-key="name" class="elevation-1">
+                <v-data-table :headers="headers" :items="desserts"  item-key="name" class="elevation-1">
                     <template slot="items" slot-scope="props">
                         <tr >
                             <td >{{ props.item.event_id }}</td>

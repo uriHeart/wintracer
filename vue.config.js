@@ -13,6 +13,7 @@ module.exports = {
   lintOnSave: false,
   configureWebpack: {
     // Set up all the aliases we use in our app.
+
     resolve: {
       alias: {
         src: resolveSrc('src'),
@@ -23,7 +24,7 @@ module.exports = {
       new webpack.optimize.LimitChunkCountPlugin({
         maxChunks: 6
       })
-    ]
+     ]
   },
   pwa: {
     name: 'Vue Light Bootstrap Dashboard',
@@ -34,6 +35,18 @@ module.exports = {
   },
   css: {
     // Enable CSS source maps.
-    sourceMap: process.env.NODE_ENV !== 'production'
+    sourceMap: process.env.NODE_ENV !== 'production',
+    // loaderOptions: {
+    //   sass: {
+    //     data: `
+    //                 @import "./node_modules/vuetify/src/components/VRangeSlider/VRangeSlider.sass";
+    //                 @import "./node_modules/vuetify/src/components/VSpeedDial/VSpeedDial.sass";
+    //                 @import "./node_modules/vuetify/src/components/VAlert/VAlert.sass";
+    //                 @import "./node_modules/vuetify/src/components/VBadge/VBadge.sass";
+    //                 @import "./node_modules/vuetify/src/components/*";
+    //                 @import "./node_modules/vuetify/src/styles/tools/_theme.sass";
+    //             `
+    //   }
+    // }
   }
 };

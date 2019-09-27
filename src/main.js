@@ -19,10 +19,7 @@ import './registerServiceWorker'
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
 
-import Vuetify from 'vuetify/lib'
-import 'vuetify/dist/vuetify.min.css'
-
-Vue.use(Vuetify)
+import Vuetify from 'vuetify'
 
 Vue.prototype.$rootPath = 'http://localhost:5000'
 //Vue.prototype.$rootPath = ''
@@ -33,7 +30,9 @@ Vue.prototype.$http = axios
 import VueSocketIO from 'vue-socket.io'
 const store = new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    index_id:'',
+    treeItems:''
   },
   actions: {
     "SOCKET_response1"(message) {
@@ -73,5 +72,8 @@ new Vue({
   el: '#app',
   store,
   render: h => h(App),
-  router
+  router,
+  vuetify: new Vuetify(),
+  components: { App },
+  template: '<App/>'
 })

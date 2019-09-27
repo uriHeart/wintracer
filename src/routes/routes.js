@@ -11,7 +11,7 @@ import SearchLogVuetify from 'src/pages/SearchLogVuetify.vue'
 
 import Typography from 'src/pages/Typography.vue'
 import Icons from 'src/pages/Grid.vue'
-import Maps from 'src/pages/Maps.vue'
+import LogTrace from 'src/pages/LogTrace.vue'
 import Notifications from 'src/pages/Notifications.vue'
 import Upgrade from 'src/pages/Upgrade.vue'
 import HashDetail from 'src/pages/HashDetail.vue'
@@ -63,9 +63,9 @@ const routes = [
         component: Icons
       },
       {
-        path: 'maps',
-        name: 'Maps',
-        component: Maps
+        path: 'LogTrace',
+        name: 'LogTrace',
+        component: LogTrace
       },
       {
         path: 'notifications',
