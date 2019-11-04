@@ -35,7 +35,7 @@
       <!--</sidebar-link>-->
       <sidebar-link to="/admin/LogTrace">
         <i class="nc-icon nc-pin-3"></i>
-        <p>LogTrace</p>
+        <p>MALICIOUS LOG</p>
       </sidebar-link>
       <!--<sidebar-link to="/admin/notifications">-->
         <!--<i class="nc-icon nc-bell-55"></i>-->

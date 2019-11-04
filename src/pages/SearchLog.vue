@@ -4,7 +4,7 @@
         <v-text-field
             v-model="searchText"
             label="anything"
-            @keydown="getData"
+            @keydown="keyDown"
         ></v-text-field>
         <v-btn
             @click="getData"
@@ -74,12 +74,10 @@
                   this.total = total
                 })
       },
-      getData(keydown){
-        const path = this.$rootPath + '/es/log'
-        const params ={searchText:this.searchText}
-
-        if(keydown.keyCode ==13){
-            this.$http.post(path,params)
+        getData: function () {
+            const path = this.$rootPath + '/es/log'
+            const params = {searchText: this.searchText}
+            this.$http.post(path, params)
                 .then(response => {
                     console.log(response)
                     this.data = response.data.datas
@@ -91,12 +89,15 @@
                 .catch(error => {
                     console.log('처리중 오류가 발생하였습니다. 관리자에게 문의 바랍니다.')
                 })
-        }
-      },
-      alertSelectedUids () {
+
+        },
+        keyDown : function (keydown) {
+            if (keydown.keyCode == 13) {
+                this.getData()
+            }
+        },
+        alertSelectedUids () {
         alert(this.selection.map(({ uid }) => uid))
-      },test(){
-        alert("test")
       }
     }
   }
