@@ -27,30 +27,30 @@ Vue.prototype.$rootPath = 'http://localhost:5000'
 Vue.prototype.$http = axios
 
 
-import VueSocketIO from 'vue-socket.io'
+// import VueSocketIO from 'vue-socket.io'
 const store = new Vuex.Store({
   state: {
     count: 0,
     index_id:'',
     treeItems:''
   },
-  actions: {
-    "SOCKET_response1"(message) {
-      console.log(message)
-    }
-  }
+  // actions: {
+  //   "SOCKET_response1"(message) {
+  //     console.log(message)
+  //   }
+  // }
 })
-Vue.use(new VueSocketIO({
-  debug: true,
-  connection: 'http://localhost:5000',
-  vuex: {
-    store,
-    actionPrefix: 'SOCKET_',
-    mutationPrefix: 'SOCKET_'
-  },
-   // options: { path: "/" } //Optional options
-
- }))
+// Vue.use(new VueSocketIO({
+//   debug: true,
+//   connection: 'http://localhost:5000',
+//   vuex: {
+//     store,
+//     actionPrefix: 'SOCKET_',
+//     mutationPrefix: 'SOCKET_'
+//   },
+//    // options: { path: "/" } //Optional options
+//
+//  }))
 
 // import DataTables and DataTablesServer together
 

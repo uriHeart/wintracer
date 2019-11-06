@@ -6,10 +6,6 @@
         <i class="nc-icon nc-chart-pie-35"></i>
         <p>Dashboard</p>
       </sidebar-link>
-      <!--<sidebar-link to="/admin/user">-->
-        <!--<i class="nc-icon nc-circle-09"></i>-->
-        <!--<p>User Profile</p>-->
-      <!--</sidebar-link>-->
       <sidebar-link to="/admin/table-list">
         <i class="nc-icon nc-notes"></i>
         <p>Hash List</p>
@@ -18,35 +14,30 @@
         <i class="nc-icon nc-notes"></i>
         <p>Search log</p>
       </sidebar-link>
-
-      <!--<sidebar-link to="/admin/search-log-vuetify">-->
-        <!--<i class="nc-icon nc-notes"></i>-->
-        <!--<p>Search log vuetify</p>-->
-      <!--</sidebar-link>-->
-
-
-      <!--<sidebar-link to="/admin/typography">-->
-        <!--<i class="nc-icon nc-paper-2"></i>-->
-        <!--<p>Typography</p>-->
-      <!--</sidebar-link>-->
-      <!--<sidebar-link to="/admin/icons">-->
-        <!--<i class="nc-icon nc-atom"></i>-->
-        <!--<p>Icons</p>-->
-      <!--</sidebar-link>-->
       <sidebar-link to="/admin/LogTrace">
         <i class="nc-icon nc-pin-3"></i>
         <p>MALICIOUS LOG</p>
       </sidebar-link>
-      <!--<sidebar-link to="/admin/notifications">-->
-        <!--<i class="nc-icon nc-bell-55"></i>-->
-        <!--<p>Notifications</p>-->
-      <!--</sidebar-link>-->
-
-        <sidebar-link class="active"
-                      to="/admin/hash-detail">
+      <sidebar-link to="/admin/ssh/level/c">
+        <i class="nc-icon nc-pin-3"></i>
+        <p>SSH : LEVEL C</p>
+      </sidebar-link>
+      <sidebar-link to="/admin/vpn">
+        <i class="nc-icon nc-pin-3"></i>
+        <p>VPN</p>
+      </sidebar-link>
+      <sidebar-link to="/admin/usb">
+        <i class="nc-icon nc-pin-3"></i>
+        <p>USB</p>
+      </sidebar-link>
+      <sidebar-link to="/admin/smart/phone">
+        <i class="nc-icon nc-pin-3"></i>
+        <p>SMART PHONE</p>
+      </sidebar-link>
+      <sidebar-link to="/admin/hash-detail">
           <i class="nc-icon nc-alien-33"></i>
           <p>Hash Detail</p>
-        </sidebar-link>
+      </sidebar-link>
 
       <!--<template slot="bottom-links">-->
         <!--<sidebar-link class="active"-->
@@ -56,12 +47,12 @@
         <!--</sidebar-link>-->
       <!--</template>-->
       <v-flex xs12>
-        <v-img
-                :src="require('../../public/img/logo.svg')"
-                class="my-3"
-                contain
-                height="200"
-        ></v-img>
+        <!--<v-img-->
+                <!--:src="require('../../public/img/logo.svg')"-->
+                <!--class="my-3"-->
+                <!--contain-->
+                <!--height="200"-->
+        <!--&gt;</v-img>-->
       </v-flex>
     </side-bar>
     <div class="main-panel">

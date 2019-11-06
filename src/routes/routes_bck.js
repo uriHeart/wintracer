@@ -15,11 +15,6 @@ import LogTrace from 'src/pages/LogTrace.vue'
 import Notifications from 'src/pages/Notifications.vue'
 import Upgrade from 'src/pages/Upgrade.vue'
 import HashDetail from 'src/pages/HashDetail.vue'
-import SshLevelC from 'src/pages/SshLevelC.vue'
-import Vpn from 'src/pages/Vpn.vue'
-import Usb from 'src/pages/Usb.vue'
-import SmartPhone from 'src/pages/SmartPhone.vue'
-
 
 const routes = [
   {
@@ -72,12 +67,6 @@ const routes = [
         name: 'LogTrace',
         component: LogTrace
       },
-      ,
-      {
-        path: 'ssh/level/c',
-        name: 'SshLevelC',
-        component: SshLevelC
-      },
       {
         path: 'notifications',
         name: 'Notifications',
@@ -92,21 +81,6 @@ const routes = [
         path: 'hash-detail',
         name: 'detail',
         component: HashDetail
-      },
-      {
-        path: 'vpn',
-        name: 'vpn',
-        component: Vpn
-      },
-      {
-        path: 'usb',
-        name: 'usb',
-        component: Usb
-      },
-      {
-        path: 'smart/phone',
-        name: 'smart phone',
-        component: SmartPhone
       }
     ]
   },
